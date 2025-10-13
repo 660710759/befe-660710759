@@ -20,14 +20,14 @@ const BookCard = ({ book }) => {
   };
 
   return (
-    <Link to={`/books/${book.id}`} className="block">
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden group 
-        hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-        
-        {/* Book Cover */}
-        <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-200">
-          <img 
-            src={book.coverImage || '/images/book-placeholder.jpg' || '/images/books-image.png'}
+        <Link to={`/books/${book.id}`} state={{ book }} className="block h-full">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden group
+              hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1h-full flex flex-col">
+
+        {/* Book Cover (fixed height keeps all cards equal) */}
+        <div className="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200">
+          <img
+            src={book.coverImage || '/images/books/placeholder-book.jpg'}
             //src={book.coverImage || '/images/books-image.png'}  
             alt={book.title}
             className="w-full h-full object-cover"
@@ -36,7 +36,9 @@ const BookCard = ({ book }) => {
           {/* Badges */}
           {book.isNew && (
             <span className="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 
+            
               rounded-full text-xs font-semibold">
+
               ใหม่
             </span>
           )}

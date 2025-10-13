@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BookCard from './BookCard';
+import BookCard from '../components/BookCard';
 
 const FeaturedBooks = () => {
   // กำหนด State สำหรับจัดการข้อมูล
